@@ -5,7 +5,10 @@ def main():
 	d=2
 	#Cantidad de Puntos
 	n=15
-	generarData(d,n)
+	#generarData(d,n)
+    data = open("initialData.txt","r")
+    line = data.readline()
+    print("%s" % (line))
 
 def generarData(d,n):
 	text_file = open("initialData.txt","w")
