@@ -1,0 +1,7 @@
+print("Seleccione variable d")
+d = input()
+d = int(d)
+print("Seleccione variable n")
+n = input()
+n = int(n)
+print("%d \t %d" % (d,n))
