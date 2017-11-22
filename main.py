@@ -6,9 +6,16 @@ def main():
 	#Cantidad de Puntos
 	n=15
 	#generarData(d,n)
-    data = open("initialData.txt","r")
-    line = data.readline()
-    print("%s" % (line))
+	data = open('initialData.txt','r')
+	dataset = []
+	line = data.readline()
+	for i in range(0,n):
+		line = data.readline()
+		line = line.split("\t")
+		for i in range(0,2*d):
+			line[i] = line[i].strip()
+		dataset.append(line)
+	print(dataset)
 
 def generarData(d,n):
 	text_file = open("initialData.txt","w")
@@ -18,8 +25,7 @@ def generarData(d,n):
 	    	if(i!= (2*d-1)):
 	    		print("%d" % (randint(0,100)), end ="\t",file = text_file)
 	    	else:
-	    		print("%d" % (randint(0,100)), end ="",file = text_file)
-	        
+	    		print("%d" % (randint(0,100)), end ="",file = text_file)	        
 	    print("\n", end = "" , file= text_file)
 
 
