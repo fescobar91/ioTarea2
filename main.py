@@ -14,8 +14,9 @@ def main():
 		line = line.split("\t")
 		for i in range(0,2*d):
 			line[i] = line[i].strip()
+			line[i] = int(line[i])
 		dataset.append(line)
-	print(dataset)
+
 
 def generarData(d,n):
 	text_file = open("initialData.txt","w")
