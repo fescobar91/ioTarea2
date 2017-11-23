@@ -57,21 +57,26 @@ def main():
 						flag2 = 1
 				if(flag2==0):
 					xDominado.append(X[i])
-                if(flag2 == 1):
-                    flag2 = 0
-	print(xDominado)
+				if(flag2 == 1):
+					flag2 = 0
+		notDominated = []
+		for i in xDominado:
+			if i not in notDominated:
+				notDominated.append(i)
+
+	print(notDominated)
 
 
 def generarData(d,n):
 	text_file = open("initialData.txt","w")
 	print("%d\t%d" % (d,n),file = text_file)
 	for i in range(0,n):
-	    for i in range(0,2*d):
-	    	if(i!= (2*d-1)):
-	    		print("%d" % (randint(0,100)), end ="\t",file = text_file)
-	    	else:
-	    		print("%d" % (randint(0,100)), end ="",file = text_file)	        
-	    print("\n", end = "" , file= text_file)
+		for i in range(0,2*d):
+			if(i!= (2*d-1)):
+				print("%d" % (randint(0,100)), end ="\t",file = text_file)
+			else:
+				print("%d" % (randint(0,100)), end ="",file = text_file)			
+		print("\n", end = "" , file= text_file)
 
 
 
