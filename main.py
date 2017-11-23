@@ -21,7 +21,7 @@ def main():
 
 	aux1 = []
 	aux2 = []
-	print(dataset)
+
 	for i in range(0,n):
 		for j in range(0,2*d):
 			if(j < d):
@@ -33,32 +33,31 @@ def main():
 		aux1 = []
 		aux2 = []
 
-
-    d =2
-xDominado = []
-if(d==2):
-    X = [[2,6],[3,4],[2,6],[3,7],[5,2]
-        ,[5,4],[2,3],[3,9],[7,5],[6,5]
-        ,[6,9],[4,1],[1,5],[8,8],[5,2]]
-    n = len(X)
-    print(n)
-    for i in range(0,n):
-        flag = 0
-        for j in range(0,n):
-            if(X[i][0] >= X[j][0] or X[i][1] <= X[j][1]):
-                flag = flag +1
-            if(X[i][0] == X[j][0] and X[i][1] > X[j][1]):
-                flag = flag - 1
-            if(X[i][0] < X[j][0] and X[i][1] == X[j][1]):
-                flag = flag -1
-        if(flag == n):
-            flag2 = 0
-            for k in range(0,len(xDominado)):
-                if(X[i][0] == X[k][0] and X[i][1] == X[k][1]):
-                    flag2 = 1
-            if(flag2==0):
-                xDominado.append(X[i])
-print(xDominado)
+	d =2
+	xDominado = []
+	if(d==2):
+		X = [[2,6],[3,4],[2,6],[3,7],[5,2]
+			,[5,4],[2,3],[3,9],[7,5],[6,5]
+			,[6,9],[4,1],[1,5],[8,8],[5,2]]
+		n = len(X)
+		print(n)
+		for i in range(0,n):
+			flag = 0
+			for j in range(0,n):
+				if(X[i][0] >= X[j][0] or X[i][1] <= X[j][1]):
+					flag = flag +1
+				if(X[i][0] == X[j][0] and X[i][1] > X[j][1]):
+					flag = flag - 1
+				if(X[i][0] < X[j][0] and X[i][1] == X[j][1]):
+					flag = flag -1
+			if(flag == n):
+				flag2 = 0
+				for k in range(0,len(xDominado)):
+					if(X[i][0] == X[k][0] and X[i][1] == X[k][1]):
+						flag2 = 1
+				if(flag2==0):
+					xDominado.append(X[i])
+	print(xDominado)
 
 
 def generarData(d,n):
