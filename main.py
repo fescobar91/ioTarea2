@@ -26,18 +26,12 @@ def main():
 		for j in range(0,2*d):
 			if(j < d):
 				aux1.append(dataset[i][j])
-				#print(dataset[i][j])
 			else:
 				aux2.append(dataset[i][j])
-				#print(dataset[i][j])
 		dataset1.append(aux1)
 		dataset2.append(aux2)
-		print(dataset1)
-		aux1.clear()
-		aux2.clear()
-	#print(dataset1)		
-	#print("\n\n\n")
-	#print(dataset2)
+		aux1 = []
+		aux2 = []
 
 
 def generarData(d,n):
