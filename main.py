@@ -57,6 +57,8 @@ def main():
 						flag2 = 1
 				if(flag2==0):
 					xDominado.append(X[i])
+                if(flag2 == 1):
+                    flag2 = 0
 	print(xDominado)
 
 
