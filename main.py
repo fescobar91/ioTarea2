@@ -1,5 +1,5 @@
 from random import randint 
-
+#probando
 def main():
 	#Cantidad de dimensiones
 	d=2
