@@ -32,39 +32,38 @@ def main():
 		dataset2.append(aux2)
 		aux1 = []
 		aux2 = []
+	noDominadosDS1 = []
+	noDominadosDS1 = dominated2D(n,d,dataset1)
+	print(noDominadosDS1)
 
-	d =2
+def dominated2D(n,d,data):
 	xDominado = []
 	if(d==2):
-		X = [[2,6],[3,4],[2,6],[3,7],[5,2]
-			,[5,4],[2,3],[3,9],[7,5],[6,5]
-			,[6,9],[4,1],[1,5],[8,8],[5,2]]
-		n = len(X)
+		n = len(data)
 		print(n)
 		for i in range(0,n):
 			flag = 0
 			for j in range(0,n):
-				if(X[i][0] >= X[j][0] or X[i][1] <= X[j][1]):
+				if(data[i][0] <= data[j][0] or data[i][1] >= data[j][1]):
 					flag = flag +1
-				if(X[i][0] == X[j][0] and X[i][1] > X[j][1]):
+				if(data[i][0] == data[j][0] and data[i][1] < data[j][1]):
 					flag = flag - 1
-				if(X[i][0] < X[j][0] and X[i][1] == X[j][1]):
+				if(data[i][0] > data[j][0] and data[i][1] == data[j][1]):
 					flag = flag -1
 			if(flag == n):
 				flag2 = 0
 				for k in range(0,len(xDominado)):
-					if(X[i][0] == X[k][0] and X[i][1] == X[k][1]):
+					if(data[i][0] == data[k][0] and data[i][1] == data[k][1]):
 						flag2 = 1
 				if(flag2==0):
-					xDominado.append(X[i])
+					xDominado.append(data[i])
 				if(flag2 == 1):
 					flag2 = 0
 		notDominated = []
 		for i in xDominado:
 			if i not in notDominated:
 				notDominated.append(i)
-
-	print(notDominated)
+	return notDominated
 
 
 def generarData(d,n):
