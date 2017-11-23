@@ -7,6 +7,8 @@ def main():
 	n=15
 	#generarData(d,n)
 	data = open('initialData.txt','r')
+	dataset1 = []
+	dataset2 = []
 	dataset = []
 	line = data.readline()
 	for i in range(0,n):
@@ -16,6 +18,26 @@ def main():
 			line[i] = line[i].strip()
 			line[i] = int(line[i])
 		dataset.append(line)
+
+	aux1 = []
+	aux2 = []
+	print(dataset)
+	for i in range(0,n):
+		for j in range(0,2*d):
+			if(j < d):
+				aux1.append(dataset[i][j])
+				#print(dataset[i][j])
+			else:
+				aux2.append(dataset[i][j])
+				#print(dataset[i][j])
+		dataset1.append(aux1)
+		dataset2.append(aux2)
+		print(dataset1)
+		aux1.clear()
+		aux2.clear()
+	#print(dataset1)		
+	#print("\n\n\n")
+	#print(dataset2)
 
 
 def generarData(d,n):
@@ -28,6 +50,7 @@ def generarData(d,n):
 	    	else:
 	    		print("%d" % (randint(0,100)), end ="",file = text_file)	        
 	    print("\n", end = "" , file= text_file)
+
 
 
 main()
