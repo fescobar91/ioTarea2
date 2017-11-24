@@ -24,8 +24,8 @@ def main():
 
 	aux1 = []
 	aux2 = []
-	print("DATASET")
-	print(dataset)
+#	print("DATASET")
+#	print(dataset)
 	for i in range(0,n):
 		for j in range(0,2*d):
 			if(j < d):
@@ -36,13 +36,24 @@ def main():
 		dataset2.append(aux2)
 		aux1 = []
 		aux2 = []
+	print("d: %d" %(d))
+	print("n: %d" %(n))
 	print("X")
 	print(dataset1)
 	print("Y")
 	print(dataset2)
 
 	if(d==2):
-		puntos2D(d,n,dataset1)
+		noDominados1 = puntos2D(d,n,dataset1)
+		noDominados2 = puntos2D(d,n,dataset2)
+		print("Puntos no dominados de X")
+		print(noDominados1)
+		print("Puntos no dominados de Y")
+		print(noDominados2)
+		nadirX = nadir2D(noDominados1)
+		nadirY = nadir2D(noDominados2)
+		print("Punto nadir de X: (%d,%d)" %(nadirX[0],nadirX[1]))
+		print("Punto nadir de Y: (%d,%d)" %(nadirY[0],nadirY[1]))
 	if(d==3):
 		puntos3D(d,n,dataset1)
 
@@ -50,9 +61,9 @@ def main():
 def puntos2D(d,n,dataset1):
 	noDominadosDS1 = []
 	noDominadosDS1 = dominated2D(n,d,dataset1)
-	print("Puntos no Dominados en 2D:")
-	print(noDominadosDS1)
-	noDominiaosDS2 = dominated2D(n,d,dataset2)
+	#print("Puntos no Dominados en 2D:")
+	return noDominadosDS1
+	
 
 def puntos3D(d,n,dataset1):
 	print("3D")
