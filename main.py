@@ -2,7 +2,7 @@ from random import randint
 
 def main():
 	#Cantidad de dimensiones
-	d=randint(2,3)	
+	d=2	
 	#d=3
 	#Cantidad de Puntos
 	n=randint(1,19)	
@@ -50,23 +50,45 @@ def main():
 def puntos2D(d,n,dataset1):
 	noDominadosDS1 = []
 	noDominadosDS1 = dominated2D(n,d,dataset1)
-<<<<<<< Updated upstream
 	print("Puntos no Dominados en 2D:")
 	print(noDominadosDS1)
-=======
 	noDominiaosDS2 = dominated2D(n,d,dataset2)
-
-
-
-	
->>>>>>> Stashed changes
 
 def puntos3D(d,n,dataset1):
 	print("3D")
 	noDominadosDS1 = []
 	noDominadosDS1 = dominated3D(n,d,dataset1)
 	print("Puntos no Dominados en 3D:")
-	print(noDominadosDS1)	
+	print(noDominadosDS1)
+
+def nadir2D(noDominados):
+	ideal = []
+	min  = 99999
+	max = 0
+	minPunto = []
+	maxPunto = []
+	for i in range(0,len(noDominados)):
+		if(noDominados[i][0] <= min):
+			min = noDominados[i][0]
+			if(minPunto == []):
+				minPunto.append(noDominados[i][0])
+				minPunto.append(noDominados[i][1])
+			else:
+				minPunto = []
+				minPunto.append(noDominados[i][0])
+				minPunto.append(noDominados[i][1])
+		if(noDominados[i][1] >= max):
+			max = noDominados[i][1]
+			if(maxPunto == []):
+				maxPunto.append(noDominados[i][0])
+				maxPunto.append(noDominados[i][1])
+			else:
+				maxPunto = []
+				maxPunto.append(noDominados[i][0])
+				maxPunto.append(noDominados[i][1])
+	ideal = [maxPunto[0],minPunto[1]]
+	nadir = [minPunto[0],maxPunto[1]]
+	return nadir	
 
 def dominated2D(n,d,data):
 	xDominado = []
