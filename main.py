@@ -1,5 +1,5 @@
 from random import randint 
-#bruno pushea esto
+#Maldito pancho
 # aaaa el push
 #asdasdasdasdasds
 def main():
