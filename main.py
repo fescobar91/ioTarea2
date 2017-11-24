@@ -1,5 +1,7 @@
 from random import randint 
-
+#bruno pushea esto
+# aaaa el push
+#asdasdasdasdasds
 def main():
 	#Cantidad de dimensiones
 	d=2	
