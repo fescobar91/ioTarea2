@@ -44,6 +44,7 @@ def main():
 	print(dataset2)
 
 	if(d==2):
+<<<<<<< HEAD
 		noDominados1 = puntos2D(d,n,dataset1)
 		noDominados2 = puntos2D(d,n,dataset2)
 		print("Puntos no dominados de X")
@@ -54,18 +55,28 @@ def main():
 		nadirY = nadir2D(noDominados2)
 		print("Punto nadir de X: (%d,%d)" %(nadirX[0],nadirX[1]))
 		print("Punto nadir de Y: (%d,%d)" %(nadirY[0],nadirY[1]))
+=======
+		puntos2D(d,n,dataset1,dataset2)
+>>>>>>> master
 	if(d==3):
-		puntos3D(d,n,dataset1)
+		puntos3D(d,n,dataset1,dataset2)
 
 
-def puntos2D(d,n,dataset1):
+def puntos2D(d,n,dataset1,dataset2):
 	noDominadosDS1 = []
 	noDominadosDS1 = dominated2D(n,d,dataset1)
+<<<<<<< HEAD
 	#print("Puntos no Dominados en 2D:")
 	return noDominadosDS1
 	
+=======
+	print("Puntos no Dominados en 2D:")
+	print(noDominadosDS1)
+	noDominiadosDS2 = []
+	noDominiadosDS2 = dominated2D(n,d,dataset2)
+>>>>>>> master
 
-def puntos3D(d,n,dataset1):
+def puntos3D(d,n,dataset1,dataset2):
 	print("3D")
 	noDominadosDS1 = []
 	noDominadosDS1 = dominated3D(n,d,dataset1)
