@@ -1,5 +1,6 @@
 from random import randint 
 #Maldito pancho
+#pancho pancho hishishishishisihsi
 # aaaa el push
 #asdasdasdasdasds
 def main():
