@@ -1,12 +1,15 @@
 from random import randint 
-#probando
+
 def main():
 	#Cantidad de dimensiones
-	d=2
+	d=randint(2,3)	
+	#d=3
 	#Cantidad de Puntos
-	n=15
-	#generarData(d,n)
+	n=randint(1,19)	
+	#n=15
+	generarData(d,n)
 	data = open('initialData.txt','r')
+
 	dataset1 = []
 	dataset2 = []
 	dataset = []
@@ -21,7 +24,8 @@ def main():
 
 	aux1 = []
 	aux2 = []
-
+	print("DATASET")
+	print(dataset)
 	for i in range(0,n):
 		for j in range(0,2*d):
 			if(j < d):
@@ -32,15 +36,35 @@ def main():
 		dataset2.append(aux2)
 		aux1 = []
 		aux2 = []
+	print("X")
+	print(dataset1)
+	print("Y")
+	print(dataset2)
+
+	if(d==2):
+		puntos2D(d,n,dataset1)
+	if(d==3):
+		puntos3D(d,n,dataset1)
+
+
+def puntos2D(d,n,dataset1):
 	noDominadosDS1 = []
 	noDominadosDS1 = dominated2D(n,d,dataset1)
+	print("Puntos no Dominados en 2D:")
 	print(noDominadosDS1)
+
+def puntos3D(d,n,dataset1):
+	print("3D")
+	noDominadosDS1 = []
+	noDominadosDS1 = dominated3D(n,d,dataset1)
+	print("Puntos no Dominados en 3D:")
+	print(noDominadosDS1)	
 
 def dominated2D(n,d,data):
 	xDominado = []
 	if(d==2):
 		n = len(data)
-		print(n)
+		#print(n)
 		for i in range(0,n):
 			flag = 0
 			for j in range(0,n):
@@ -65,6 +89,37 @@ def dominated2D(n,d,data):
 				notDominated.append(i)
 	return notDominated
 
+def dominated3D(n,d,data):
+	xDominado = []
+	if(d==3):
+		n = len(data)
+		#print(n)
+		for i in range(0,n):
+			flag = 0
+			for j in range(0,n):
+				if(data[i][0] >= data[j][0] or data[i][1] <= data[j][1] or data[i][2] <= data[j][2]):
+					flag = flag +1
+				if(data[i][0] == data[j][0] and data[i][1] > data[j][1] and data[i][2] > data[j][2]):
+					flag = flag - 1
+				if(data[i][0] < data[j][0] and data[i][1] == data[j][1] and data[i][2] == data[j][2]):
+					flag = flag -1
+			if(flag == n):
+				flag2 = 0
+				for k in range(0,len(xDominado)):
+					if(data[i][0] == data[k][0] and data[i][1] == data[k][1] and data[i][2] == data[k][2]):
+						flag2 = 1
+				if(flag2==0):
+					xDominado.append(data[i])
+				if(flag2 == 1):
+					flag2 = 0
+
+		notDominated = []
+		for i in xDominado:
+			if i not in notDominated:
+				notDominated.append(i)
+	return notDominated
+
+
 
 def generarData(d,n):
 	text_file = open("initialData.txt","w")
@@ -76,7 +131,5 @@ def generarData(d,n):
 			else:
 				print("%d" % (randint(0,100)), end ="",file = text_file)			
 		print("\n", end = "" , file= text_file)
-
-
 
 main()
