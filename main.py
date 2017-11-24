@@ -50,8 +50,16 @@ def main():
 def puntos2D(d,n,dataset1):
 	noDominadosDS1 = []
 	noDominadosDS1 = dominated2D(n,d,dataset1)
+<<<<<<< Updated upstream
 	print("Puntos no Dominados en 2D:")
 	print(noDominadosDS1)
+=======
+	noDominiaosDS2 = dominated2D(n,d,dataset2)
+
+
+
+	
+>>>>>>> Stashed changes
 
 def puntos3D(d,n,dataset1):
 	print("3D")
